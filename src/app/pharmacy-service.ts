@@ -6,7 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PharmacyService {
-  
+
+  constructor(private http: HttpClient) { }
+
+  getMedications(): Observable<Medication[]> {
+    return this.http.get<Medication[]>('https://localhost:7083/Medication');
+  }
 }
 
 export interface Medication {
